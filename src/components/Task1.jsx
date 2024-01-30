@@ -15,10 +15,12 @@ const Task1 = () => {
     axios.get("https://api.thecatapi.com/v1/images/search").then(({ data }) => {
       setCatImage(data[0].url);
     });
-  }, []);
+  }, [count]);
 
   const handleClick = () => {
     setCount((currentCount) => currentCount + 1);
+    // Make sure you're using the most recent version of 'count'
+    // useState is asynchronous - using current count will get the most recent version of it by accessing it with a callback function
   };
 
   return (
